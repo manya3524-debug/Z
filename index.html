@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>For Chaman</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Patrick+Hand&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="grain"></div>
+  <div id="sparkleLayer" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <div class="brand">for chaman 🌼</div>
+    <div class="journey">
+      <div class="journey-fill" id="journeyFill"></div>
+    </div>
+    <button id="soundToggle" class="sound-btn" aria-label="Toggle sound">♪</button>
+  </header>
+
+  <main>
+    <!-- LOCK -->
+    <section class="scene active" id="lockScene">
+      <div class="paper-card center">
+        <div class="tape"></div>
+        <div class="emoji-lock">🪝🤝</div>
+        <p class="eyebrow">a tiny world made just for you</p>
+        <h1>Enter the password</h1>
+        <p class="hand">you know this one.</p>
+        <div class="password-row">
+          <input id="passwordInput" type="password" placeholder="secret password" autocomplete="off" />
+          <button id="unlockBtn" class="primary">open</button>
+        </div>
+        <p id="errorMsg" class="error"></p>
+      </div>
+    </section>
+
+    <!-- WELCOME -->
+    <section class="scene" id="welcomeScene">
+      <div class="paper-card center">
+        <div class="tape pink"></div>
+        <div class="tiny-sticker">little note 💌</div>
+        <div class="heart-orbit">
+          <span>♡</span><span>♥</span><span>✦</span><span>🐧</span><span>😈</span>
+          <div class="big-heart">♥</div>
+        </div>
+        <h1>Thank you.</h1>
+        <p class="lead">
+          For the calls, the laughs, the reassurance, the random conversations,
+          the stupid jokes, and for being there in the ways you could.
+        </p>
+        <p class="hand highlight">I noticed it all.</p>
+        <button class="primary next" data-next="memoryScene">keep going ✦</button>
+      </div>
+    </section>
+
+    <!-- MEMORY PATH -->
+    <section class="scene" id="memoryScene">
+      <div class="paper-card">
+        <div class="tape lilac"></div>
+        <p class="eyebrow">some things deserve to be remembered</p>
+        <h1>Little things that stayed</h1>
+        <p>Tap each card. They open one by one.</p>
+
+        <div class="memory-grid">
+          <button class="memory-card">
+            <span class="front">📞</span>
+            <span class="back">The calls that made heavy days feel a little lighter.</span>
+          </button>
+          <button class="memory-card">
+            <span class="front">😂</span>
+            <span class="back">The jokes that were objectively stupid and still made me laugh.</span>
+          </button>
+          <button class="memory-card">
+            <span class="front">🏎️</span>
+            <span class="back">The matches, the reactions, and how alive you sound when you care.</span>
+          </button>
+          <button class="memory-card">
+            <span class="front">🫂</span>
+            <span class="back">The moments you stayed when you really did not have to.</span>
+          </button>
+          <button class="memory-card">
+            <span class="front">☁️</span>
+            <span class="back">The conversations that had no point and somehow meant everything.</span>
+          </button>
+          <button class="memory-card">
+            <span class="front">🌙</span>
+            <span class="back">The quiet moments too. Not every kind thing had to be loud.</span>
+          </button>
+        </div>
+
+        <button class="primary next locked-next" data-next="raceScene" id="memoryNext" disabled>
+          open all six first
+        </button>
+      </div>
+    </section>
+
+    <!-- RACE GAME -->
+    <section class="scene" id="raceScene">
+      <div class="paper-card">
+        <div class="tape blue"></div>
+        <p class="eyebrow">because hope needs a little drama</p>
+        <h1>Take the car to the podium</h1>
+        <p>
+          Tap the car three times. Every tap is a reminder:
+          bad laps do not decide the whole race.
+        </p>
+
+        <div class="race-wrap">
+          <div class="track">
+            <div class="track-line"></div>
+            <button id="raceCar" class="race-car" aria-label="Race car">
+              <span class="car-body">
+                <span class="car-nose"></span>
+                <span class="car-cockpit"></span>
+                <span class="car-wheel w1"></span>
+                <span class="car-wheel w2"></span>
+                <span class="car-wheel w3"></span>
+                <span class="car-wheel w4"></span>
+              </span>
+              <span class="tap-label">tap me</span>
+            </button>
+            <div class="finish">🏁</div>
+          </div>
+
+          <div class="lap-message" id="lapMessage">
+            Lap 1: You are allowed to begin again.
+          </div>
+
+          <div class="podium" id="podium">
+            <div class="place second"><span>2</span></div>
+            <div class="place first"><span>1</span><div class="trophy">🏆</div></div>
+            <div class="place third"><span>3</span></div>
+          </div>
+        </div>
+
+        <button class="primary next locked-next" data-next="specialScene" id="raceNext" disabled>
+          finish the race first
+        </button>
+      </div>
+    </section>
+
+    <!-- SPECIAL -->
+    <section class="scene" id="specialScene">
+      <div class="paper-card">
+        <div class="tape green"></div>
+        <p class="eyebrow">not only in my life</p>
+        <h1>Why you are special</h1>
+        <p>
+          Not just because of what you were to me. Because of who you are in the lives around you.
+        </p>
+
+        <div class="special-stack">
+          <article>
+            <div class="icon">🧩</div>
+            <div>
+              <h3>You become part of people's everyday life</h3>
+              <p>Your presence slips into routines, jokes, plans and memories without even trying.</p>
+            </div>
+          </article>
+          <article>
+            <div class="icon">🪴</div>
+            <div>
+              <h3>You make people grow</h3>
+              <p>Sometimes gently, sometimes through difficult truths, but people leave knowing themselves better.</p>
+            </div>
+          </article>
+          <article>
+            <div class="icon">🔥</div>
+            <div>
+              <h3>You care deeply about what matters to you</h3>
+              <p>That passion makes you memorable. It makes people listen when you speak about something you love.</p>
+            </div>
+          </article>
+          <article>
+            <div class="icon">🛟</div>
+            <div>
+              <h3>You have stayed for people</h3>
+              <p>Maybe imperfectly. Maybe quietly. But there are moments when your presence has genuinely helped someone hold on.</p>
+            </div>
+          </article>
+          <article>
+            <div class="icon">✨</div>
+            <div>
+              <h3>You leave an impact</h3>
+              <p>People remember the way you made them laugh, think, feel understood, or simply feel less alone.</p>
+            </div>
+          </article>
+        </div>
+
+        <button class="primary next" data-next="hopeScene">there is more →</button>
+      </div>
+    </section>
+
+    <!-- HOPE GARDEN -->
+    <section class="scene" id="hopeScene">
+      <div class="paper-card">
+        <div class="tape yellow"></div>
+        <p class="eyebrow">for the days that feel uncertain</p>
+        <h1>Plant a little hope</h1>
+        <p>Tap each seed. Let it grow.</p>
+
+        <div class="garden">
+          <button class="seed" data-flower="🌱"><span>•</span></button>
+          <button class="seed" data-flower="🌷"><span>•</span></button>
+          <button class="seed" data-flower="🌻"><span>•</span></button>
+          <button class="seed" data-flower="🌸"><span>•</span></button>
+          <button class="seed" data-flower="🌼"><span>•</span></button>
+        </div>
+
+        <div class="hope-lines">
+          <p>Some things take longer than expected.</p>
+          <p>Some plans change shape before they make sense.</p>
+          <p>Some endings quietly make room for better beginnings.</p>
+          <p>And even when life does not work out the way we imagined, it can still work out in a way that is good.</p>
+        </div>
+
+        <button class="primary next locked-next" data-next="letterScene" id="gardenNext" disabled>
+          grow all five
+        </button>
+      </div>
+    </section>
+
+    <!-- LETTER -->
+    <section class="scene" id="letterScene">
+      <div class="paper-card letter-card">
+        <div class="tape peach"></div>
+        <div class="tiny-sticker">read this slowly</div>
+        <p class="eyebrow">what i really wanted you to know</p>
+        <h1>I am grateful for you.</h1>
+
+        <div class="type-letter" id="typeLetter">
+          <p class="reveal-line">I know things between us are not going the way either of us once imagined.</p>
+          <p class="reveal-line">And I know I cannot force life to arrange itself into the version I wanted.</p>
+          <p class="reveal-line">But none of that erases the good you gave me.</p>
+          <p class="reveal-line">You were there during moments when I felt difficult to understand, and sometimes your presence alone made the day easier.</p>
+          <p class="reveal-line">I will always be grateful for that.</p>
+          <p class="reveal-line">I hope you never measure your worth only by the things that did not work out.</p>
+          <p class="reveal-line">You are more than one relationship, one mistake, one bad phase, one lost plan, or one difficult year.</p>
+          <p class="reveal-line">There are people whose lives are warmer, funnier, and fuller because you exist in them.</p>
+        </div>
+
+        <button class="primary next" data-next="futureScene">next page</button>
+      </div>
+    </section>
+
+    <!-- FUTURE -->
+    <section class="scene" id="futureScene">
+      <div class="paper-card">
+        <div class="tape sky"></div>
+        <p class="eyebrow">a message for your future self</p>
+        <h1>Things can still fall into place.</h1>
+
+        <div class="future-road">
+          <div class="road"></div>
+          <div class="road-sign">not there yet</div>
+          <div class="road-sign second-sign">keep going</div>
+          <div class="road-sign third-sign">you are closer</div>
+          <div class="sunrise">☀️</div>
+        </div>
+
+        <div class="future-copy">
+          <p>
+            Maybe not exactly how you planned. Maybe not on the timeline you expected.
+            But life has a strange way of opening doors after we stop staring at the one that closed.
+          </p>
+          <p>
+            I hope you find work that excites you, people who choose you clearly, places that feel like home,
+            and ordinary mornings that make you glad you stayed long enough to see them.
+          </p>
+          <p class="hand highlight">
+            You have not missed your chance at a good life.
+          </p>
+        </div>
+
+        <button class="primary next" data-next="goodbyeScene">one last thing ♡</button>
+      </div>
+    </section>
+
+    <!-- FINAL -->
+    <section class="scene" id="goodbyeScene">
+      <div class="paper-card center final-card">
+        <div class="tape rose"></div>
+        <p class="eyebrow">the last page</p>
+        <h1>I think it is time for me to step away.</h1>
+        <div class="final-copy">
+          <p>
+            Not because you meant nothing. You meant enough that staying in the middle started hurting more than leaving.
+          </p>
+          <p>
+            I am not leaving with anger. I am leaving with gratitude for what was real, what was kind,
+            and what I learned from loving you.
+          </p>
+          <p>
+            I hope this is not the page you remember most. I hope you remember the podium, the flowers,
+            and every reminder that your life still holds so much possibility.
+          </p>
+          <p>
+            You do not have to fix anything or find the perfect words. Just take care of yourself,
+            keep going, and let life surprise you.
+          </p>
+        </div>
+
+        <button id="finalButton" class="final-button">tap for the last note</button>
+
+        <div class="last-note" id="lastNote">
+          <div class="moon">🌙</div>
+          <p>I will miss you.</p>
+          <span>But more than that, I hope you are happy.</span>
+          <small>Take care, Chaman. ♡</small>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <audio id="bgMusic" loop>
+    <source src="" type="audio/mpeg">
+  </audio>
+
+  <script src="script.js"></script>
+</body>
+</html>
